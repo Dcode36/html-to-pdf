@@ -23,7 +23,8 @@ def generate_pdf():
     try:
         # Generate PDF using WeasyPrint
         print(f"Creating PDF from HTML: {html[:100]}...")
-        HTML(string=html).write_pdf(filepath)
+        html_doc = HTML(string=html)
+        html_doc.write_pdf(target=filepath)
         print(f"PDF created successfully at {filepath}")
     except Exception as e:
         print(f"Error creating PDF: {str(e)}")
